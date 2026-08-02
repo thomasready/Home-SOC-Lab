@@ -12,3 +12,4 @@ During the initial setup, I expanded the VM storage and configured the required 
 Deployed the Wazuh agent to a separate Ubuntu 24.04 LTS VM to act as a monitored endpoint.
 
 The endpoint successfully enrolled with the Wazuh manager and began reporting security events, system inventory, vulnerability data and security configuration assessment results.
+![Wazuh Agent Overview](screenshots/Wazuh%20agent%20overview.png)
