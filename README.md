@@ -26,3 +26,14 @@ Wazuh successfully detected the authentication activity. The failed attempts gen
 The events also captured useful investigation data including the source IP address, attempted username, timestamp and authentication result. This confirmed that the SIEM had sufficient visibility to identify and investigate SSH authentication attacks.
 
 ![Wazuh SSH Detection](screenshots/ssh-bruteforce-wazuh.png)
+### SSH Authentication Correlation Testing
+
+After confirming that Wazuh detected repeated SSH authentication failures, I tested a scenario where multiple failed login attempts were followed by a successful authentication from the same source IP.
+
+Using the Wazuh Ruleset Test tool, the sequence triggered built-in rule **40112** at level **12**:
+
+> Multiple authentication failures followed by a success.
+
+The alert is mapped to MITRE ATT&CK techniques **T1110 (Brute Force)** and **T1078 (Valid Accounts)**. This demonstrated how Wazuh can correlate separate authentication events to identify a potentially successful brute-force attack rather than treating each login attempt individually.
+
+![Wazuh SSH authentication correlation test](screenshots/ssh-failures-then-success-wazuh.png)
